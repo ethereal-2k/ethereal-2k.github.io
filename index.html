@@ -5,110 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rohan Tripathi | Portfolio</title>
   <style>
+    /* Base styles */
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f5f5;
-      color: #333;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: #e0e0e0;
+      background: #0a0f0a;
+      overflow-x: hidden;
+      position: relative;
     }
+
+    canvas#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
     header {
-      background: #2c3e50;
-      color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: #4cff8f;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #a8e6cf;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      margin-top: 1rem;
     }
     nav a {
       margin: 0 1rem;
-      color: white;
+      color: #a8e6cf;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s ease;
     }
+    nav a:hover {
+      color: #4cff8f;
+    }
+
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 3rem auto;
-      padding: 1rem;
+      padding: 0 1rem;
     }
     h2 {
-      color: #2c3e50;
-      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      color: #4cff8f;
+      margin-bottom: 2rem;
     }
+
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
+
     .card {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: rgba(20, 30, 20, 0.9);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 255, 128, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 255, 128, 0.4);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #4cff8f;
+    }
+    .card p {
+      color: #cfd;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #a8e6cf;
+      text-decoration: none;
+      border: 1px solid #4cff8f;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .card a:hover {
+      background: #4cff8f;
+      color: #0a0f0a;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #2c3e50;
-      color: white;
-      margin-top: 2rem;
+      padding: 2rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
 
+  <!-- Background canvas -->
+  <canvas id="bg"></canvas>
+
   <header>
     <h1>Rohan Tripathi</h1>
-    <p>MS Computer Science | Data Science & Networking</p>
+    <p>Actively seeking Data Scientist / Data Engineer roles</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
+      <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I am a Computer Science graduate student at Rutgers University with expertise in data engineering, networking, and AI/ML projects. I enjoy building scalable systems and deploying intelligent applications.</p>
+    <p>
+      I am a Computer Science graduate (Rutgers University, May 2025) specializing in 
+      data engineering, scalable cloud systems, and applied machine learning. My work 
+      bridges <strong>high-performance computing</strong>, <strong>AI/ML research</strong>, 
+      and <strong>data pipelines</strong>, with a focus on building robust, production-ready 
+      solutions. I am particularly passionate about architecting systems that bring 
+      reliability and intelligence together.
+    </p>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
+    <h2>Highlighted Projects</h2>
     <div class="projects">
       <div class="card">
-        <h3>Packet Source Authentication</h3>
-        <p>GPU-accelerated IPv4 packet authentication using CUDA and SHA-256 hashing.</p>
-        <a href="https://github.com/ethereal-2k/Packet-Source-Authentication" target="_blank">View on GitHub</a>
+        <h3>Gaia-based Interactive Space Map</h3>
+        <p>Web-based star visualization platform inspired by Gaia data, enabling exploration and path prediction for celestial objects.</p>
+        <a href="#">View Project</a>
       </div>
       <div class="card">
-        <h3>AI Story Segmentation</h3>
-        <p>NLP model for narrative segmentation using BERT and BiLSTM on custom-labeled stories dataset.</p>
-        <a href="https://github.com/ethereal-2k" target="_blank">View Repo</a>
+        <h3>Fraud Detection for Cryptocurrencies with GNNs</h3>
+        <p>Graph Neural Network system for detecting anomalous wallet interactions, visualized with dynamic fraud graphs.</p>
+        <a href="#">View Project</a>
       </div>
       <div class="card">
-        <h3>Fair Transfer Learning</h3>
-        <p>Framework to improve fairness across datasets using Adult → COMPAS transfer learning.</p>
-        <a href="#">View Repo</a>
+        <h3>Packet Source Authentication using GPUs (CUDA)</h3>
+        <p>GPU-accelerated IPv4 packet authentication protocol with SHA-256 hashing and CUDA parallelization.</p>
+        <a href="https://github.com/ethereal-2k/Packet-Source-Authentication" target="_blank">GitHub Repo</a>
       </div>
     </div>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <p><strong>Languages:</strong> Python, C++, SQL, Java<br>
-       <strong>Frameworks:</strong> PyTorch, TensorFlow, Airflow, Docker, Kubernetes<br>
-       <strong>Cloud:</strong> AWS, GCP, Azure<br>
-       <strong>Tools:</strong> Git, Terraform, Prometheus</p>
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="card" style="max-width:700px;margin:auto;">
+      <h3>Leveraging GPU-Accelerated Packet Authentication for Low-Latency Networks</h3>
+      <p><em>IEEE Xplore, 2025</em></p>
+      <a href="https://ieeexplore.ieee.org/document/11017668" target="_blank">View Publication</a>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:rohantripathi@example.com">rohantripathi@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/ethereal-2k" target="_blank">ethereal-2k</a></p>
-    <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/rohantripathi</a></p>
+    <p style="text-align:center">
+      Email: <a href="mailto:rohantripathi@example.com">rohantripathi@example.com</a> <br>
+      GitHub: <a href="https://github.com/ethereal-2k" target="_blank">ethereal-2k</a> <br>
+      LinkedIn: <a href="#" target="_blank">linkedin.com/in/rohantripathi</a>
+    </p>
   </section>
 
   <footer>
     <p>&copy; 2025 Rohan Tripathi</p>
   </footer>
 
+  <!-- Neural network style animation -->
+  <script>
+    const canvas = document.getElementById("bg");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = 2;
+      }
+      move() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#4cff8f";
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particles = [];
+      for (let i = 0; i < 100; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.move();
+        p.draw();
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.strokeStyle = "rgba(76, 255, 143, 0.1)";
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+  </script>
 </body>
 </html>
