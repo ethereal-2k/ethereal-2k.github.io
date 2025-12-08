@@ -6,119 +6,186 @@
   <title>Rohan Tripathi | Portfolio</title>
   <style>
     /* Base styles */
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      color: #e0e0e0;
-      background: #0a0f0a;
-      overflow-x: hidden;
-      position: relative;
+    :root {
+      --bg: #0c1224;
+      --bg-2: #0e1b36;
+      --panel: rgba(18, 31, 62, 0.75);
+      --card: rgba(22, 38, 74, 0.9);
+      --border: rgba(124, 181, 255, 0.18);
+      --text: #eef4ff;
+      --muted: #a8b9df;
+      --accent: #6dd6ff;
+      --accent-strong: #8ef1d3;
+      --glow: 0 22px 60px rgba(109, 214, 255, 0.18);
     }
 
-    canvas#bg {
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a8a 100%);
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before,
+    body::after {
+      content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      width: 30rem;
+      height: 30rem;
+      border-radius: 50%;
+      filter: blur(120px);
       z-index: -1;
+      opacity: 0.4;
+    }
+    body::before {
+      top: -12rem;
+      left: -8rem;
+      background: #3b82f6;
+    }
+    body::after {
+      bottom: -10rem;
+      right: -6rem;
+      background: #22d3ee;
     }
 
     header {
       text-align: center;
-      padding: 4rem 2rem 2rem;
+      padding: 4.5rem 1.5rem 2.75rem;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: clamp(2.4rem, 4vw, 3.3rem);
       margin: 0;
-      color: #4cff8f;
+      letter-spacing: 0.6px;
     }
     header p {
-      font-size: 1.2rem;
-      color: #a8e6cf;
-      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0.8rem auto 0;
+      max-width: 760px;
+      line-height: 1.6;
     }
 
     nav {
-      margin-top: 1rem;
+      margin-top: 1.6rem;
+      display: inline-flex;
+      gap: 1rem;
+      padding: 0.65rem 1.2rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: var(--glow);
+      backdrop-filter: blur(10px);
     }
     nav a {
-      margin: 0 1rem;
-      color: #a8e6cf;
+      color: var(--muted);
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.25px;
+      padding: 0.35rem 0.6rem;
+      border-radius: 10px;
+      transition: color 0.2s ease, background 0.2s ease;
     }
     nav a:hover {
-      color: #4cff8f;
+      color: var(--text);
+      background: rgba(109, 214, 255, 0.12);
+    }
+
+    .shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
     }
 
     section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      margin: 3.25rem auto 0;
     }
     h2 {
       text-align: center;
-      font-size: 2rem;
-      color: #4cff8f;
-      margin-bottom: 2rem;
+      font-size: 1.95rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.35px;
+    }
+
+    .section-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: var(--glow);
+      backdrop-filter: blur(12px);
     }
 
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      gap: 1.4rem;
     }
 
     .card {
-      background: rgba(20, 30, 20, 0.9);
-      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
       padding: 1.5rem;
-      box-shadow: 0 8px 24px rgba(0, 255, 128, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: var(--glow);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      backdrop-filter: blur(10px);
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0, 255, 128, 0.4);
+      border-color: rgba(109, 214, 255, 0.45);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
     }
     .card h3 {
       margin-top: 0;
-      color: #4cff8f;
+      color: var(--text);
+      font-size: 1.22rem;
+      letter-spacing: 0.2px;
     }
     .card p {
-      color: #cfd;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
     .card a {
-      display: inline-block;
-      margin-top: 1rem;
-      color: #a8e6cf;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.35rem;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
       text-decoration: none;
-      border: 1px solid #4cff8f;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: background 0.3s ease, color 0.3s ease;
+      font-weight: 700;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      box-shadow: 0 12px 26px rgba(109, 214, 255, 0.3);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
     .card a:hover {
-      background: #4cff8f;
-      color: #0a0f0a;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(109, 214, 255, 0.4);
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      color: #666;
+      padding: 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background canvas -->
-  <canvas id="bg"></canvas>
-
   <header>
     <h1>Rohan Tripathi</h1>
-    <p>Actively seeking Data Scientist / Data Engineer roles</p>
+    <p>Data engineering, distributed systems, and applied ML — building reliable, high-performance products.</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -127,128 +194,80 @@
     </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a Computer Science graduate (Rutgers University, May 2025) specializing in 
-      data engineering, scalable cloud systems, and applied machine learning. My work 
-      bridges <strong>high-performance computing</strong>, <strong>AI/ML research</strong>, 
-      and <strong>data pipelines</strong>, with a focus on building robust, production-ready 
-      solutions. I am particularly passionate about architecting systems that bring 
-      reliability and intelligence together.
-    </p>
-  </section>
+  <main class="shell">
+    <section id="about" class="section-card">
+      <h2>About Me</h2>
+      <p>
+        I’m a systems-focused engineer (Rutgers CS, May 2025) building resilient data and compute pipelines end-to-end—from ingestion and transport to storage, orchestration, and observability. I work across <strong>distributed systems</strong>, <strong>high-performance networking</strong>, <strong>parallel compute</strong>, and <strong>ML/analytics</strong> on both cloud and bare metal. I prioritize predictable latency, cache-friendly data paths, circuit-breakers, and failure containment with clear SLIs/SLOs. Recent projects include GPU-accelerated packet authentication, CPU-optimized IP lookup, and blockchain-backed auditability for multi-party exchanges. I enjoy making complex systems observable, cost-aware, and production-ready.
+      </p>
+    </section>
 
-  <section id="projects">
-    <h2>Highlighted Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Gaia-based Interactive Space Map</h3>
-        <p>Web-based star visualization platform inspired by Gaia data, enabling exploration and path prediction for celestial objects.</p>
-        <a href="#">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Fraud Detection for Cryptocurrencies with GNNs</h3>
-        <p>Graph Neural Network system for detecting anomalous wallet interactions, visualized with dynamic fraud graphs.</p>
-        <a href="#">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Packet Source Authentication using GPUs (CUDA)</h3>
-        <p>GPU-accelerated IPv4 packet authentication protocol with SHA-256 hashing and CUDA parallelization.</p>
-        <a href="https://github.com/ethereal-2k/Packet-Source-Authentication" target="_blank">GitHub Repo</a>
-      </div>
-    </div>
-  </section>
+    <section id="skills" class="section-card">
+      <h2>Skills & Tools</h2>
+      <p><strong>Systems & Data:</strong> Distributed systems, stream processing, data pipelines, caching, consensus (PoA), observability (metrics/traces/logs)</p>
+      <p><strong>Performance:</strong> Caches and memory locality, CPU/GPU parallelism, batching, backpressure, queueing, throughput/latency tuning</p>
+      <p><strong>Networking & Security:</strong> IPv4/IPv6, LPM, packet authentication, TLS basics, access control, auditability</p>
+      <p><strong>Languages & Stacks:</strong> Python, C/C++, CUDA basics, JavaScript/TypeScript, Node, React; Linux, Docker, private Ethereum</p>
+      <p><strong>Data/ML:</strong> Python data stack (pandas/NumPy), model serving patterns, feature pipelines, experiment tracking</p>
+      <p><strong>Tooling:</strong> Git, CI/CD, containers, profiling/tracing tools, dashboards, Terraform-lite comfort</p>
+    </section>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <div class="card" style="max-width:700px;margin:auto;">
-      <h3>Leveraging GPU-Accelerated Packet Authentication for Low-Latency Networks</h3>
-      <p><em>IEEE Xplore, 2025</em></p>
-      <a href="https://ieeexplore.ieee.org/document/11017668" target="_blank">View Publication</a>
-    </div>
-  </section>
+    <section id="projects" class="section-card">
+      <h2>Highlighted Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>IP Lookup on CPU</h3>
+          <p>Longest-prefix-match engine tuned for CPU caches and predictable throughput; benchmarks DIR-24-8 style tables and update paths for real network workloads.</p>
+          <a href="https://github.com/ethereal-2k/ip_lookup_cpu" target="_blank" rel="noopener">View Repository</a>
+        </div>
+        <div class="card">
+          <h3>Packet Source Authentication (CUDA)</h3>
+          <p>GPU-parallelized IPv4 packet hashing (SHA-256) to authenticate traffic at line rate; focuses on latency, batching, and PCIe transfer overlap.</p>
+          <a href="https://github.com/ethereal-2k/Packet-Source-Authentication" target="_blank" rel="noopener">View Repository</a>
+        </div>
+        <div class="card">
+          <h3>Blockchain Project</h3>
+          <p>Private Ethereum + PoA prototype for secure data exchange, with smart-contract logging and replay protection for multi-party workflows.</p>
+          <a href="https://github.com/ethereal-2k/Blockchain-Project" target="_blank" rel="noopener">View Repository</a>
+        </div>
+        <div class="card">
+          <h3>Shift Cipher</h3>
+          <p>Minimal Python implementation of a classic shift cipher; demonstrates clean CLI UX and unit-ready structure for teaching basic cryptography.</p>
+          <a href="https://github.com/ethereal-2k/shift_cipher" target="_blank" rel="noopener">View Repository</a>
+        </div>
+        <div class="card">
+          <h3>Snakes Game</h3>
+          <p>CLI snake game in C++ using array-based board state; showcases input handling, simple rendering, and game-loop timing.</p>
+          <a href="https://github.com/ethereal-2k/snakes_game" target="_blank" rel="noopener">View Repository</a>
+        </div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p style="text-align:center">
-      Email: <a href="mailto:rohantripathi@example.com">rohantripathi@example.com</a> <br>
-      GitHub: <a href="https://github.com/ethereal-2k" target="_blank">ethereal-2k</a> <br>
-      LinkedIn: <a href="#" target="_blank">linkedin.com/in/rohantripathi</a>
-    </p>
-  </section>
+    <section id="publications" class="section-card">
+      <h2>Publications</h2>
+      <div class="card" style="max-width:820px;margin:auto;">
+        <h3>Secure Blockchain Integration Approach for Knowledge Discovery in Industrial Internet of Things</h3>
+        <p><em>IEEE Xplore, 2025</em></p>
+        <p>
+          The paper proposes a four-layer security architecture that isolates IIoT devices from user-facing layers and maintains a registry to block malicious endpoints. By combining proxy re-encryption for clients, PoA consensus for blockchain nodes, and whitelist-based access control for IIoT devices, it enforces legitimacy across participants. A private Ethereum PoA prototype measures end-to-end exchange time and gas consumption while supporting accountable knowledge discovery.
+        </p>
+        <a href="https://ieeexplore.ieee.org/document/11017668" target="_blank" rel="noopener">View Publication</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section-card">
+      <h2>Contact</h2>
+      <p style="text-align:center">
+        Email: <a href="mailto:rohantripathi@example.com">rohantripathi@example.com</a> <br>
+        GitHub: <a href="https://github.com/ethereal-2k" target="_blank">ethereal-2k</a> <br>
+        LinkedIn: <a href="#" target="_blank">linkedin.com/in/rohantripathi</a>
+      </p>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Rohan Tripathi</p>
   </footer>
 
-  <!-- Neural network style animation -->
-  <script>
-    const canvas = document.getElementById("bg");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener("resize", resize);
-    resize();
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = 2;
-      }
-      move() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "#4cff8f";
-        ctx.fill();
-      }
-    }
-
-    function init() {
-      particles = [];
-      for (let i = 0; i < 100; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.move();
-        p.draw();
-        for (let j = i + 1; j < particles.length; j++) {
-          const q = particles[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.strokeStyle = "rgba(76, 255, 143, 0.1)";
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(animate);
-    }
-
-    init();
-    animate();
-  </script>
 </body>
 </html>
