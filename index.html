@@ -115,11 +115,24 @@
     }
 
     .section-card {
+      max-width: 960px;
+      margin: 0 auto;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 1.75rem;
       box-shadow: var(--glow);
+      backdrop-filter: blur(12px);
+    }
+
+    .page-frame {
+      max-width: 1260px;
+      margin: 48px auto;
+      padding: 32px 24px 40px;
+      border-radius: 22px;
+      background: rgba(12, 18, 36, 0.75);
+      border: 1px solid rgba(124, 181, 255, 0.22);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(12px);
     }
 
@@ -183,6 +196,7 @@
 </head>
 <body>
 
+  <div class="page-frame">
   <header>
     <h1>Rohan Tripathi</h1>
     <p>Data engineering, distributed systems, and applied ML — building reliable, high-performance products.</p>
@@ -198,18 +212,29 @@
     <section id="about" class="section-card">
       <h2>About Me</h2>
       <p>
-        I’m a systems-focused engineer (Rutgers CS, May 2025) building resilient data and compute pipelines end-to-end—from ingestion and transport to storage, orchestration, and observability. I work across <strong>distributed systems</strong>, <strong>high-performance networking</strong>, <strong>parallel compute</strong>, and <strong>ML/analytics</strong> on both cloud and bare metal. I prioritize predictable latency, cache-friendly data paths, circuit-breakers, and failure containment with clear SLIs/SLOs. Recent projects include GPU-accelerated packet authentication, CPU-optimized IP lookup, and blockchain-backed auditability for multi-party exchanges. I enjoy making complex systems observable, cost-aware, and production-ready.
+        I am a systems-focused engineer driven by low-level programming, performance-critical software, and scalable, efficient computing systems. My work sits at the intersection of networking, GPU acceleration, and distributed systems, following data from packets on the wire to memory layouts on hardware and parallel execution on modern accelerators—then translating careful engineering into measurable performance and robustness gains.
+      </p>
+      <p>
+        I work close to the hardware, reasoning about memory hierarchies, cache behavior, parallel execution models, and the operational realities of large-scale systems. I write and optimize multithreaded C++ and CUDA, build packet-processing pipelines, and benchmark latency/throughput and resource efficiency as first-class constraints.
+      </p>
+      <p>
+        I have designed secure data exchange for industrial IoT using blockchain-based smart contracts, focusing on fairness, verifiable transactions, and correctness in distributed settings with untrusted parties.
+      </p>
+      <p>
+        In networking and GPU acceleration, I built source authentication for IP packets on GPUs (RTX 3060/A4000/A100), processing large PCAP datasets, modifying IPv4 headers, and hashing at scale. I tuned global memory coalescing, SM utilization, kernel launch configs, and host–device transfers to reach high throughput.
+      </p>
+      <p>
+        I implemented and benchmarked radix tries, Patricia tries, DIR-24-8, and DXR-style IP lookup algorithms for lookup/insert/delete under mixed workloads, emphasizing memory efficiency, update performance, and behavior under dynamic, realistic traces.
+      </p>
+      <p>
+        I also optimize AI inference systems, working with SGLang, vLLM, TensorRT/TensorRT-LLM, and attention kernel optimizations (paged/flash). I profile with Nsight to tune kernel-level behavior, reduce memory pressure, and improve latency/throughput for production-oriented deployments.
       </p>
     </section>
 
     <section id="skills" class="section-card">
       <h2>Skills & Tools</h2>
-      <p><strong>Systems & Data:</strong> Distributed systems, stream processing, data pipelines, caching, consensus (PoA), observability (metrics/traces/logs)</p>
-      <p><strong>Performance:</strong> Caches and memory locality, CPU/GPU parallelism, batching, backpressure, queueing, throughput/latency tuning</p>
-      <p><strong>Networking & Security:</strong> IPv4/IPv6, LPM, packet authentication, TLS basics, access control, auditability</p>
-      <p><strong>Languages & Stacks:</strong> Python, C/C++, CUDA basics, JavaScript/TypeScript, Node, React; Linux, Docker, private Ethereum</p>
-      <p><strong>Data/ML:</strong> Python data stack (pandas/NumPy), model serving patterns, feature pipelines, experiment tracking</p>
-      <p><strong>Tooling:</strong> Git, CI/CD, containers, profiling/tracing tools, dashboards, Terraform-lite comfort</p>
+      <p><strong>Technical areas:</strong> High-performance networking and packet processing, IP lookup algorithms, GPU programming and parallel systems, distributed systems and operating systems, AI inference optimization</p>
+      <p><strong>Tools & tech:</strong> C, C++, CUDA, Python, Linux, PCAP, pthreads, Docker, Git, PostgreSQL, FastAPI, React, AWS, SLURM, Nsight Compute/Systems, performance profiling and benchmarking tools, SGLang, vLLM, TensorRT, TensorRT-LLM</p>
     </section>
 
     <section id="projects" class="section-card">
@@ -268,6 +293,6 @@
   <footer>
     <p>&copy; 2025 Rohan Tripathi</p>
   </footer>
-
+  </div>
 </body>
 </html>
