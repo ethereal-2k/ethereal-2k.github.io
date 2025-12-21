@@ -167,8 +167,45 @@
         border-color:rgba(126,141,255,.35);
       }
 
+      /* EDUCATION SECTION */
+      .edu-container {
+        margin-top: 32px;
+        width: 100%;
+      }
+      .timeline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 12px;
+      }
+      @media (max-width: 768px) {
+        .timeline { grid-template-columns: 1fr; }
+      }
+      .edu-card {
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+      }
+      .edu-degree {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+      }
+      .edu-school {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .edu-meta {
+        font-size: 13px;
+        color: var(--muted2);
+        margin-top: 2px;
+      }
+
+      /* GRID LAYOUT */
       .grid{
-        margin-top:28px;
+        margin-top: 28px;
         display:grid;
         grid-template-columns:.9fr 1.1fr;
         gap:18px;
@@ -178,7 +215,13 @@
       }
 
       section{ margin-top:28px; }
-      .section-title h2{ margin:0; font-size:18px; }
+      .section-title h2{ 
+        margin:0; 
+        font-size:14px; 
+        text-transform: uppercase; 
+        letter-spacing: 0.05em; 
+        color: var(--muted2);
+      }
 
       .card, .work-item{
         margin-top:12px;
@@ -255,6 +298,24 @@
           </div>
         </div>
       </header>
+
+      <section class="edu-container">
+        <div class="section-title">
+          <h2>Education</h2>
+        </div>
+        <div class="timeline">
+          <div class="edu-card">
+            <h3 class="edu-degree">Masters in Computer Science</h3>
+            <div class="edu-school">Rutgers, The State University of New Jersey</div>
+            <div class="edu-meta">Concentration: Systems and Networks</div>
+          </div>
+          <div class="edu-card">
+            <h3 class="edu-degree">Bachelors in Computer Science</h3>
+            <div class="edu-school">Manipal Institute of Technology</div>
+            <div class="edu-meta">Minor: Computer Networks and Security</div>
+          </div>
+        </div>
+      </section>
 
       <div class="grid">
         <aside>
@@ -355,7 +416,6 @@
 
       <footer>
         <div>© <span id="year"></span> Rohan Tripathi</div>
-        <div>Minimal HTML • fast • maintainable</div>
       </footer>
     </main>
 
@@ -364,4 +424,3 @@
     </script>
   </body>
 </html>
-
